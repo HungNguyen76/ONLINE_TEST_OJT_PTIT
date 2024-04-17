@@ -28,7 +28,7 @@
                         <a class="nav-link btn btn-link text-primary" href="#">Trang chủ</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Đề thi</a>
+                        <a class="nav-link" href="./user/test.html">Đề thi</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="#">Các môn thi</a>
@@ -37,17 +37,22 @@
                         <a class="nav-link" href="#">Hỏi đáp</a>
                     </li>
                     <form id="searchForm" class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="text" placeholder="Tìm kiếm" aria-label="Search">
+                        <input id="searchInput" class="form-control mr-sm-2" type="text" placeholder="Tìm kiếm" aria-label="Search">
                         <button id="timKiem" class="btn btn-outline-success my-2 my-sm-0">Tìm kiếm</button>
                     </form>
 
                     <li class="nav-item active">
-                        <a id="registerBtn" class="nav-link btn btn-primary rounded-pill text-white" href="./user/register.html">Đăng
+                        <a id="registerBtn" class="nav-link btn btn-primary rounded-pill text-white"
+                            href="./user/register.html">Đăng
                             ký</a>
                     </li>
                     <li class="nav-item active">
-                        <a id="loginBtn" class="nav-link btn btn-primary rounded-pill text-white" href="./user/login.html">Đăng
+                        <a id="loginBtn" class="nav-link btn btn-primary rounded-pill text-white"
+                            href="./user/login.html">Đăng
                             nhập</a>
+                        <div id="adminButtonContainer">
+                            <!-- Nơi button sẽ hiển thị -->
+                        </div>
                     </li>
                 </ul>
             </div>

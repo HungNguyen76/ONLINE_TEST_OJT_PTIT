@@ -1,6 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
     const loginForm = document.querySelector('form');
 
+    // Định nghĩa adminData ở đây
+    const adminData = {
+        email: 'admin@gmail.com',
+        password: '1234567890'
+    };
+
     loginForm.addEventListener('submit', function(event) {
         event.preventDefault(); // Ngăn chặn form được gửi đi mặc định
 
@@ -19,14 +25,17 @@ document.addEventListener('DOMContentLoaded', function() {
                     alert(`Chào mừng bạn đã đăng nhập với email: ${email}`);
                     localStorage.setItem('checkUser', true);
                     window.location.href = "/pages/index.html";
+                } else if (email === adminData.email && password === adminData.password) {
+                    // Sử dụng adminData ở đây
+                    alert(`Chào mừng admin đã đăng nhập`);
+                    localStorage.setItem('isAdmin', true);
+                    window.location.href = "/pages/admin/admin.html";
                 } else {
-                    alert("Email hoặc mật khẩu không đúng. Vui lòng thử lại!");
+                    alert("Mật khẩu không đúng. Vui lòng nhập lại!");
                 }
             } else {
                 alert("Không tìm thấy tài khoản. Vui lòng đăng ký trước khi đăng nhập!");
             }
-        } else {
-            alert("Vui lòng nhập đầy đủ email và mật khẩu!");
         }
     });
 });

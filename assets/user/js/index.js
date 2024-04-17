@@ -9,21 +9,32 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function timKiemKhoaHoc() {
     // Lấy giá trị nhập vào trong ô tìm kiếm
-    var searchInput = document.querySelector('.form-control');
+    var searchInput = document.getElementById('searchInput');
     var searchValue = searchInput.value.trim().toLowerCase(); // Lấy giá trị và chuyển thành chữ thường
 
-    // Lọc danh sách khóa học theo chữ cái
+    // Tách chuỗi tìm kiếm thành các từ riêng biệt
+    var searchWords = searchValue.split(" ");
+
+    // Lọc danh sách khóa học theo từng từ
     var khoaHocList = document.querySelectorAll('.khoa-hoc');
     khoaHocList.forEach(function (khoaHoc) {
-        var khoaHocTen = khoaHoc.textContent.toLowerCase(); // Lấy tên khóa học và chuyển thành chữ thường
-        // Kiểm tra xem tên khóa học có chứa giá trị tìm kiếm không
-        if (khoaHocTen.includes(searchValue)) {
-            khoaHoc.style.display = 'block'; // Hiển thị khóa học nếu có phù hợp
+        var khoaHocTen = khoaHoc.querySelector('.card-title').textContent.toLowerCase(); // Lấy tên khóa học và chuyển thành chữ thường
+        var match = true;
+        // Kiểm tra xem mỗi từ trong chuỗi tìm kiếm có xuất hiện trong tên khóa học không
+        searchWords.forEach(function(word) {
+            if (!khoaHocTen.includes(word)) {
+                match = false;
+            }
+        });
+        // Hiển thị hoặc ẩn khóa học dựa trên kết quả so sánh
+        if (match) {
+            khoaHoc.style.display = 'block';
         } else {
-            khoaHoc.style.display = 'none'; // Ẩn khóa học nếu không phù hợp
+            khoaHoc.style.display = 'none';
         }
     });
 }
+
 
 document.addEventListener('DOMContentLoaded', function () {
     // Kiểm tra giá trị của khóa checkUser trong localStorage
@@ -105,4 +116,34 @@ function createDropdown(userName) {
     // Thêm dropdown vào phần tử trong DOM (ví dụ: navbar)
     const navbar = document.querySelector('.navbar'); // Thay '.navbar' bằng lớp hoặc id của phần tử mà bạn muốn thêm dropdown
     navbar.appendChild(dropdown);
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Kiểm tra giá trị của khóa isAdmin trong localStorage
+    const isAdmin = localStorage.getItem('isAdmin');
+    if (isAdmin === 'true') {
+        // Nếu isAdmin là true, ẩn nút đăng nhập và đăng ký
+        const signinButtons = document.querySelectorAll('.nav-link.btn.btn-primary.rounded-pill.text-white');
+        signinButtons.forEach(button => {
+            button.style.display = 'none';
+        });
+
+        // Tạo button chuyển đến trang admin.html
+        createAdminButton();
+    }
+});
+
+function createAdminButton() {
+    const adminButtonContainer = document.getElementById('adminButtonContainer');
+    if (adminButtonContainer) {
+        const button = document.createElement('button');
+        button.textContent = 'Chuyển đến trang Admin';
+        button.style.marginLeft = '50px'; // Thêm kiểu này để đẩy nút sang phải
+        button.addEventListener('click', function() {
+            window.location.href = '/pages/admin/admin.html';
+        });
+        adminButtonContainer.appendChild(button);
+    } else {
+        console.error("Không tìm thấy phần tử với id 'adminButtonContainer'");
+    }
 }
