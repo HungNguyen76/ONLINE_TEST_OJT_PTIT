@@ -14,9 +14,6 @@ function estimateFormResult(event) {
     // Hiển thị kết quả
     document.getElementById("cong").innerHTML = "Your Score";
     document.getElementById("degr").innerHTML = estimate + " %";
-    document.getElementById("name").style = "transform: translateX(0%);";
-    document.getElementById("age").style = "transform: translateX(0%); transition-delay: 0.2s";
-    document.getElementById("place").style = "transform: translateX(0%); transition-delay: 0.4s";
     document.getElementById("cong").style = "transform: scale(1,1); transition-delay: 0.2s";
     document.getElementById("degr").style = "transform: scale(1,1); transition-delay: 0.4s";
     // document.getElementById("lineone").style = "transform: translateX(0%); transition-delay: .1s;";

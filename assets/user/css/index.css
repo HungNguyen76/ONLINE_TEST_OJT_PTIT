@@ -96,3 +96,11 @@ a:hover {
     background-color: #28a745;
     border-color: #28a745;
 }
+
+#subjects-dropdown-menu {
+    display: none; /* Ẩn menu môn học mặc định */
+}
+
+#subjects-dropdown-menu.show {
+    display: block; /* Hiển thị menu môn học khi có lớp show */
+}
