@@ -16,25 +16,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Kiểm tra xem email và mật khẩu có hợp lệ không
         if (email && password) {
-            // Kiểm tra email và mật khẩu có khớp với dữ liệu trong localStorage không
-            const userData = localStorage.getItem('userData');
-            if (userData) {
-                const user = JSON.parse(userData);
-                if (email === user.email && password === user.password) {
-                    // Đăng nhập thành công, chuyển hướng đến trang index.html
-                    alert(`Chào mừng bạn đã đăng nhập với email: ${email}`);
-                    localStorage.setItem('checkUser', true);
-                    window.location.href = "/pages/index.html";
-                } else if (email === adminData.email && password === adminData.password) {
-                    // Sử dụng adminData ở đây
+            // Kiểm tra email có bị block trong localStorage không
+            const isBlocked = localStorage.getItem(email);
+            if (isBlocked && isBlocked === 'true') {
+                alert(`Tài khoản ${email} đang bị block. Vui lòng liên hệ với admin để mở.`);
+            } else {
+                // Kiểm tra xem người dùng có phải là admin không
+                const isAdmin = email === adminData.email && password === adminData.password;
+
+                if (isAdmin) {
+                    // Đăng nhập với quyền admin
                     alert(`Chào mừng admin đã đăng nhập`);
+                    // Lưu trạng thái đăng nhập của admin vào localStorage
                     localStorage.setItem('isAdmin', true);
+                    // Chuyển hướng đến trang admin
                     window.location.href = "/pages/admin/admin.html";
                 } else {
-                    alert("Mật khẩu không đúng. Vui lòng nhập lại!");
+                    // Đăng nhập với tài khoản người dùng
+                    alert(`Chào mừng bạn đã đăng nhập với email: ${email}`);
+                    // Lưu trạng thái đăng nhập của người dùng vào localStorage
+                    localStorage.setItem('currentUser', email);
+                    // Chuyển hướng đến trang index.html
+                    window.location.href = "/pages/index.html";
                 }
-            } else {
-                alert("Không tìm thấy tài khoản. Vui lòng đăng ký trước khi đăng nhập!");
             }
         }
     });

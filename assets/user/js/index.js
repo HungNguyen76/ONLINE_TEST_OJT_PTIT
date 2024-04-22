@@ -37,23 +37,17 @@ function timKiemKhoaHoc() {
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Kiểm tra giá trị của khóa checkUser trong localStorage
-    const checkUser = localStorage.getItem('checkUser');
-    if (checkUser === 'true') {
-        // Nếu checkUser là true, hiển thị dropdown và ẩn nút đăng nhập và đăng ký
+    // Kiểm tra giá trị của khóa currentUser trong localStorage
+    const currentUser = localStorage.getItem('currentUser');
+    if (currentUser) {
         const signinButtons = document.querySelectorAll('.nav-link.btn.btn-primary.rounded-pill.text-white');
         signinButtons.forEach(button => {
             button.style.display = 'none';
         });
-
-        // Lấy tên người dùng từ localStorage
-        const userData = localStorage.getItem('userData');
-        if (userData) {
-            const user = JSON.parse(userData);
-            const userName = user.name;
-            // Sử dụng hàm createDropdown để tạo dropdown và hiển thị tên người dùng
-            createDropdown(userName);
-        }
+        // Nếu khóa currentUser tồn tại, thực hiện tạo dropdown và hiển thị tên người dùng
+        const userName = currentUser;
+        // Sử dụng hàm createDropdown để tạo dropdown và hiển thị tên người dùng
+        createDropdown(userName);
     }
 });
 
@@ -90,11 +84,10 @@ function createDropdown(userName) {
     logoutItem.setAttribute('href', '/pages/index.html');
     // Thêm sự kiện click cho mục "Đăng xuất"
     logoutItem.addEventListener('click', function () {
-        // Xóa key 'checkUser' trong localStorage
         const confirmLogout = confirm('Bạn có chắc chắn muốn đăng xuất?');
         if (confirmLogout) {
-            // Xóa key 'checkUser' trong localStorage
-            localStorage.removeItem('checkUser');
+            // Xóa key 'currentUser' trong localStorage
+            localStorage.removeItem('currentUser');
             // Hiển thị lại nút đăng nhập và đăng ký
             const signinButtons = document.querySelectorAll('.nav-link.btn.btn-primary.rounded-pill.text-white');
             signinButtons.forEach(button => {

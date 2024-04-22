@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test your Knowledge [Test-Project]</title>
+    <title>Test your Knowledge</title>
 </head>
-<body onload="naming()">
+<body>
     <div class="main-container">
-        <p class="info">This is just a project about how to use JavaScript to collect the information entered by the user and calculate the final result.</p>
         <form id="quest-f">
             <div class="wraper">
                 <div class="group">
@@ -46,8 +45,8 @@
                     <p><input type="radio" name="Q_earth" value="0" id="earth_3" />C. taking</p>
                     <p><input type="radio" name="Q_earth" value="0" id="earth_4" />D. to be taken</p>
                 </div> <!-- Container of every question -->
-               
-                   <div class="inner-group">
+                
+                    <div class="inner-group">
                         <h2> Câu 7</h2>
                         <label for="earth">They were finally __________ with each other , after not speaking for nearly five years.</label><br>
                         <p><input type="radio" name="Q_earth" value="0" id="earth_1" />A. fond</p>
@@ -71,7 +70,7 @@
                         <p><input type="radio" name="Q_planet_earth" value="0" id="planet_earth_3" />C.Jack would have been late for the meeting if his watch hadn’t been slow.</p>
                         <p><input type="radio" name="Q_planet_earth" value="0" id="planet_earth_4" />D.  Jack wouldn’t have been late for the meeting if his watch hadn’t been slow.</p>
                     </div> <!-- Container of every question -->
-                  
+                
                 <div class="group">
                     <div class="inner-group">
                         <h2> Câu 10</h2>
@@ -88,22 +87,13 @@
                     <label for="estimate-result"></label>
                     <input type="submit" name="estimate" value="Get your result" id="estimate-result" />
                 </div>
-                <!-- the container of the button -->
                 <div id="final-result">
-                    <div id="result_1">
-                        <div id="result_side_1">
-                            <p id="name">Name:<span id="pname"></span></p>
-                            <p id="age">Age:<span id="page"></span></p>
-                            <p id="place">Place:<span id="pplace"></span></p>
-                        </div>
-                    </div>
                     <div id="result_2">
                         <div id="show_result">
                             <p id="cong"></p>
                             <p id="degr"></p>
                         </div>
                     </div>
-                    
                 </div>
             </div>
         </form>
