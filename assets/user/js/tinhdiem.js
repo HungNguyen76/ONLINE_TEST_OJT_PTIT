@@ -1,16 +1,3 @@
-function naming() {
-    var userInput = document.getElementById("pname").innerHTML = prompt("Please enter your name!");
-    if (userInput === "") {
-        alert("Please enter your name!");
-        document.getElementById("pname").innerHTML = prompt("Your Name -_-");
-    }
-    var age = document.getElementById("page").innerHTML = parseInt(prompt("your age!"));
-    var place = document.getElementById("pplace").innerHTML = prompt("Your location!");
-    if (place === "") {
-        document.getElementById("pplace").innerHTML = "Unknown";
-    }
-}
-
 document.getElementById('quest-f').addEventListener('submit', estimateFormResult);
 
 function estimateFormResult(event) {
@@ -27,9 +14,6 @@ function estimateFormResult(event) {
     // Hiển thị kết quả
     document.getElementById("cong").innerHTML = "Your Score";
     document.getElementById("degr").innerHTML = estimate + " %";
-    document.getElementById("name").style = "transform: translateX(0%);";
-    document.getElementById("age").style = "transform: translateX(0%); transition-delay: 0.2s";
-    document.getElementById("place").style = "transform: translateX(0%); transition-delay: 0.4s";
     document.getElementById("cong").style = "transform: scale(1,1); transition-delay: 0.2s";
     document.getElementById("degr").style = "transform: scale(1,1); transition-delay: 0.4s";
     document.getElementById("lineone").style = "transform: translateX(0%); transition-delay: .1s;";
