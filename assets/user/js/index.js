@@ -140,3 +140,30 @@ function createAdminButton() {
         console.error("Không tìm thấy phần tử với id 'adminButtonContainer'");
     }
 }
+
+var subjectsDropdown = document.getElementById('subjects-dropdown');
+            var subjectsDropdownMenu = document.getElementById('subjects-dropdown-menu');
+        
+            // Bắt sự kiện trỏ chuột vào mục "Các môn thi"
+            subjectsDropdown.addEventListener('mouseover', function() {
+                // Hiển thị danh sách môn học khi trỏ chuột vào
+                subjectsDropdownMenu.classList.add('show');
+            });
+        
+            // Bắt sự kiện rời chuột ra khỏi mục "Các môn thi" hoặc danh sách môn học
+            subjectsDropdown.addEventListener('mouseleave', function() {
+                // Ẩn danh sách môn học khi rời chuột ra khỏi mục "Các môn thi" hoặc danh sách môn học
+                subjectsDropdownMenu.classList.remove('show');
+            });
+        
+            // Bắt sự kiện click vào một môn học cụ thể
+            document.querySelectorAll('.subject-item').forEach(item => {
+                item.addEventListener('click', function(event) {
+                    // Ngăn chặn hành động mặc định của thẻ a (chuyển hướng)
+                    event.preventDefault();
+                    // Lấy href của môn học được click
+                    var href = this.getAttribute('href');
+                    // Chuyển hướng sang trang tương ứng
+                    window.location.href = href;
+                });
+            });
