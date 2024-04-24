@@ -11,8 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const job = document.getElementById('job').value;
         const bio = document.getElementById('bio').value;
 
-        const existingEmail = localStorage.getItem(email);
-        const existingPassword = localStorage.getItem(password);
+        const existingAccounts = JSON.parse(localStorage.getItem('accounts')) || [];
 
         // Kiểm tra mật khẩu có ít nhất 6 ký tự không
         if (password.length < 6) {
@@ -26,23 +25,39 @@ document.addEventListener('DOMContentLoaded', function () {
             return; // Dừng xử lý nếu email không hợp lệ
         }
 
-        if (existingEmail || existingPassword) {
-            // Thông báo lỗi
-            alert("Email hoặc mật khẩu đã tồn tại!");
-        } else {
-            // Lưu thông tin vào localStorage
-            const userData = {
-                name: name,
-                email: email,
-                password: password,
-                job: job,
-                bio: bio
-            };
-            localStorage.setItem('userData', JSON.stringify(userData));
-
-            // Chuyển hướng đến trang đăng nhập
-            window.location.href = "/pages/user/login.html";
+        // Kiểm tra xem email đã tồn tại trong localStorage chưa
+        const existingEmail = existingAccounts.find(account => account.email === email);
+        if (existingEmail) {
+            // Thông báo lỗi nếu email đã tồn tại
+            alert("Email đã tồn tại!");
+            return; // Dừng xử lý tiếp tục
         }
+
+        // Kiểm tra xem mật khẩu đã tồn tại trong localStorage chưa
+        const existingPassword = existingAccounts.find(account => account.password === password);
+        if (existingPassword) {
+            // Thông báo lỗi nếu mật khẩu đã tồn tại
+            alert("Mật khẩu đã tồn tại!");
+            return; // Dừng xử lý tiếp tục
+        }
+
+        // Tạo đối tượng mới cho tài khoản
+        const newAccount = {
+            name: name,
+            email: email,
+            password: password,
+            job: job,
+            bio: bio
+        };
+
+        // Thêm tài khoản mới vào mảng
+        existingAccounts.push(newAccount);
+        
+        // Lưu mảng vào localStorage
+        localStorage.setItem('accounts', JSON.stringify(existingAccounts));
+
+        // Chuyển hướng đến trang đăng nhập
+        window.location.href = "/pages/user/login.html";
     });
 
     // Hàm kiểm tra định dạng email

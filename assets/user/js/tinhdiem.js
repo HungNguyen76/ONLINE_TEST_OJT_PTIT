@@ -16,7 +16,7 @@ function estimateFormResult(event) {
     document.getElementById("degr").innerHTML = estimate + " %";
     document.getElementById("cong").style = "transform: scale(1,1); transition-delay: 0.2s";
     document.getElementById("degr").style = "transform: scale(1,1); transition-delay: 0.4s";
-    document.getElementById("lineone").style = "transform: translateX(0%); transition-delay: .1s;";
+    // document.getElementById("lineone").style = "transform: translateX(0%); transition-delay: .1s;";
     document.getElementById("linetwo").style = "transform: translateX(0%); transition-delay: .3s;";
     document.getElementById("linethree").style = "transform: translateX(0%); transition-delay: .4s;";
     document.getElementById("crid").style = "animation: aut 2s infinite alternate;";
