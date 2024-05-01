@@ -15,7 +15,7 @@
     display: block; /* Hiển thị menu môn học khi có lớp show */
 }
     </style>
-
+    <title>Test Online</title>
 </head>
 
 <body>
@@ -34,38 +34,34 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link btn btn-link text-primary" href="#">Trang chủ</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="test.html">Đề thi</a>
+                        <a class="nav-link btn btn-link text-primary" href="./exam.html">Trang chủ</a>
                     </li>
                     <li class="nav-item active"id="subjects-dropdown">
-                        <a class="nav-link" href="#">Các môn thi</a>
+                        <a class="nav-link" href="./test.html">Các môn thi</a>
                         <div id="subjects-dropdown-menu">
-                            <a class="dropdown-item subject-item" href="english.html">Anh</a>
-                            <a class="dropdown-item subject-item" href="../Ex math/examt.html">Toán</a>
-                            <a class="dropdown-item subject-item" href="physics.html">Lí</a>
+                            <a class="dropdown-item subject-item" href="./english.html">Anh</a>
+                            <a class="dropdown-item subject-item" href="/pages/Ex math/examt.html">Toán</a>
+                            <a class="dropdown-item subject-item" href="/pages/vat li/examl.html">Lí</a>
                             <!-- Thêm các môn học khác nếu cần -->
                         </div>
                     </li>
-                    
-                    </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="#">Hỏi đáp</a>
+                    </li>
                     </li>
                     <form id="searchForm" class="form-inline my-2 my-lg-0">
                         <input class="form-control mr-sm-2" type="text" placeholder="Tìm kiếm" aria-label="Search">
                         <button id="timKiem" class="btn btn-outline-success my-2 my-sm-0">Tìm kiếm</button>
                     </form>
-
+                    <div id="adminButtonContainer"></div>
                     <li class="nav-item active">
                         <a id="registerBtn" class="nav-link btn btn-primary rounded-pill text-white"
-                            href="./user/register.html">Đăng
+                            href="./register.html">Đăng
                             ký</a>
                     </li>
                     <li class="nav-item active">
                         <a id="loginBtn" class="nav-link btn btn-primary rounded-pill text-white"
-                            href="./user/login.html">Đăng
+                            href="./login.html">Đăng
                             nhập</a>
                     </li>
                 </ul>
@@ -101,11 +97,12 @@
                         src="https://eduquiz.vn/_next/image?url=https%3A%2F%2Fimg.freepik.com%2Fpremium-vector%2Fquiz-comic-pop-art-style_175838-505.jpg%3Fw%3D600&w=1920&q=60"
                         alt="Quiz Image">
                     <div class="card-body">
-                        <h5 class="card-title">A1</h5>
+                        <h5 class="card-title">Anh 1</h5>
                         <p class="card-text">Nguyễn Hồng Thanh Phú</p>
                         <p class="card-text">12/04/2024</p>
                         <p class="card-text">10 câu hỏi</p>
-                        <a href="#" class="btn btn-success">Bắt Đầu</a>
+                        <p class="card-text">Thời gian: 10 phút</p>
+                        <a href="./A1.html" class="btn btn-success">Bắt Đầu</a>
                     </div>
                 </div>
             </div>
@@ -115,11 +112,12 @@
                         src="https://eduquiz.vn/_next/image?url=https%3A%2F%2Fimg.freepik.com%2Fpremium-vector%2Fquiz-comic-pop-art-style_175838-505.jpg%3Fw%3D600&w=1920&q=60"
                         alt="Quiz Image">
                     <div class="card-body">
-                        <h5 class="card-title">A2</h5>
+                        <h5 class="card-title">Anh 2</h5>
                         <p class="card-text">Nguyễn Lý Gia An</p>
                         <p class="card-text">12/04/2024</p>
-                        <p class="card-text">15 câu hỏi</p>
-                        <a href="#" class="btn btn-success">Bắt Đầu</a>
+                        <p class="card-text">10 câu hỏi</p>
+                        <p class="card-text">Thời gian: 10 phút</p>
+                        <a href="./A2.html" class="btn btn-success">Bắt Đầu</a>
                     </div>
                 </div>
             </div>
@@ -131,11 +129,12 @@
                         src="https://eduquiz.vn/_next/image?url=https%3A%2F%2Fimg.freepik.com%2Fpremium-vector%2Fquiz-comic-pop-art-style_175838-505.jpg%3Fw%3D600&w=1920&q=60"
                         alt="Quiz Image">
                     <div class="card-body">
-                        <h5 class="card-title">B1</h5>
+                        <h5 class="card-title">Toán đề 3</h5>
                         <p class="card-text">Nguyễn Bảo Duy</p>
                         <p class="card-text">12/04/2024</p>
-                        <p class="card-text">20 câu hỏi</p>
-                        <a href="#" class="btn btn-success">Bắt Đầu</a>
+                        <p class="card-text">5 câu hỏi</p>
+                        <p class="card-text">Thời gian: 5 phút</p>
+                        <a href="/pages/Ex math/Toan de 3.html" class="btn btn-success">Bắt Đầu</a>
                     </div>
                 </div>
             </div>
@@ -145,11 +144,12 @@
                         src="https://eduquiz.vn/_next/image?url=https%3A%2F%2Fimg.freepik.com%2Fpremium-vector%2Fquiz-comic-pop-art-style_175838-505.jpg%3Fw%3D600&w=1920&q=60"
                         alt="Quiz Image">
                     <div class="card-body">
-                        <h5 class="card-title">B2</h5>
+                        <h5 class="card-title">Vật lí đề 4</h5>
                         <p class="card-text">Nguyễn Minh Thuận</p>
                         <p class="card-text">12/04/2024</p>
-                        <p class="card-text">25 câu hỏi</p>
-                        <a href="#" class="btn btn-success">Bắt Đầu</a>
+                        <p class="card-text">5 câu hỏi</p>
+                        <p class="card-text">Thời gian: 5 phút</p>
+                        <a href="/pages/vat li/de 4.html" class="btn btn-success">Bắt Đầu</a>
                     </div>
                 </div>
             </div>
@@ -176,7 +176,6 @@
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.9/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <script src="../assets/user/js/index.js"></script>
         <script>
             // Lấy thẻ mục "Các môn thi" và danh sách môn học
             var subjectsDropdown = document.getElementById('subjects-dropdown');
@@ -206,11 +205,7 @@
                 });
             });
         </script>
-        
-        
-        
-
-
+    <script src="/assets/user/js/index.js"></script>
 </body>
 
 </html>

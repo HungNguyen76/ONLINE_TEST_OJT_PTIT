@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.setItem('accounts', JSON.stringify(existingAccounts));
 
         // Chuyển hướng đến trang đăng nhập
-        window.location.href = "/pages/user/login.html";
+        window.location.href = "/pages/Ex ENG/login.html";
     });
 
     // Hàm kiểm tra định dạng email

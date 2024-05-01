@@ -39,7 +39,7 @@
                       Xin chào Admin
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="../index.html">xem trang chủ</a></li>
+                      <li><a class="dropdown-item" href="../Ex ENG/exam.html">xem trang chủ</a></li>
                       <li><hr class="dropdown-divider"></li>
                       <li><a class="dropdown-item" onclick="logoutButton()">Đăng xuất</a></li>
                     </ul>
@@ -58,7 +58,7 @@
                 
                 <div class="card-body">
                   <h5 class="card-title">Số lượng đề thi</h5>
-                  <p class="card-text fs-1 text-center">12</p>
+                  <p class="card-text fs-1 text-center dethi"></p>
                 </div>
                 
               </div>
@@ -78,7 +78,7 @@
                 
                 <div class="card-body">
                   <h5 class="card-title">Số câu hỏi</h5>
-                  <p class="card-text fs-1 text-center">50</p>
+                  <p class="card-text fs-1 text-center">105</p>
                 </div>
                 
               </div>
@@ -87,8 +87,8 @@
               <div class="card text-secondary mb-3" >
                 
                 <div class="card-body">
-                  <h5 class="card-title">Số lượng thí sinh</h5>
-                  <p class="card-text fs-1 text-center">1000</p>
+                  <h5 class="card-title">Số thí sinh</h5>
+                  <p class="card-text fs-1 text-center hocsinh"></p>
                 </div>
                 
               </div>
@@ -98,6 +98,39 @@
         </div>
     </div>    
     </div>
+    <script>
+      function countLocalStorageHocsinh() {
+          var accounts = JSON.parse(localStorage.getItem('accounts')) || [];;
+          return accounts.length;
+      }
+  
+      // Hàm để hiển thị số lượng thí sinh trong thẻ card
+      function displayNumberOfCandidates() {
+          // Lấy phần tử <p> trong thẻ card
+          var cardTextElement = document.querySelector(' .hocsinh');
+          // Đếm số lượng giá trị trong local storage
+          var count = countLocalStorageHocsinh();
+          // Hiển thị số lượng trong phần tử <p>
+          cardTextElement.textContent = count;
+      }
+      displayNumberOfCandidates();
+
+      function countLocalStorageDethi() {
+          var accounts = JSON.parse(localStorage.getItem('exams')) || [];;
+          return accounts.length;
+      }
+  
+      // Hàm để hiển thị số lượng thí sinh trong thẻ card
+      function displayNumberOfExams() {
+          // Lấy phần tử <p> trong thẻ card
+          var cardTextElement = document.querySelector(' .dethi');
+          // Đếm số lượng giá trị trong local storage
+          var count = countLocalStorageDethi();
+          // Hiển thị số lượng trong phần tử <p>
+          cardTextElement.textContent = count;
+      }
+      displayNumberOfExams();
+  </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="/assets/admin/js/admin.js"></script>
 </body>
