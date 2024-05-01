@@ -8,6 +8,6 @@ function logoutButton() {
         localStorage.setItem('isAdmin', null);
         
         // Chuyển hướng người dùng về trang index.html
-        window.location.href = "/pages/index.html";
+        window.location.href = "/pages/Ex ENG/exam.html";
     }
 }

@@ -34,10 +34,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 } else {
                     // Đăng nhập với tài khoản người dùng
                     alert(`Chào mừng bạn đã đăng nhập với email: ${email}`);
+                    // Kiểm tra và cập nhật số lượng đề đã làm của người dùng
+                    let examDoneCount = localStorage.getItem('examDoneCount');
+                    if (examDoneCount === null) {
+                        // Nếu chưa có thông tin trong localStorage, set giá trị là 1
+                        examDoneCount = 0;
+                    } else {
+                        // Nếu đã có thông tin trong localStorage, tăng giá trị lên một
+                        examDoneCount = parseInt(examDoneCount) + 1;
+                    }
+                    // Lưu số lượng đề đã làm vào localStorage
+                    localStorage.setItem('examDoneCount', examDoneCount);
                     // Lưu trạng thái đăng nhập của người dùng vào localStorage
                     localStorage.setItem('currentUser', email);
                     // Chuyển hướng đến trang index.html
-                    window.location.href = "/pages/index.html";
+                    window.location.href = "/pages/Ex ENG/exam.html";
                 }
             }
         }

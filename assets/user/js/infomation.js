@@ -6,9 +6,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // Tìm tài khoản có email khớp với email của currentUser
     const currentUserAccount = accounts.find(account => account.email === currentUserEmail);
 
+    // Lấy danh sách các đề đã làm từ localStorage (nếu có)
+    const doneExams = JSON.parse(localStorage.getItem('doneExams')) || [];
+
     // Hiển thị thông tin người dùng nếu tìm thấy tài khoản
     if (currentUserAccount) {
         displayUserInfo(currentUserAccount);
+
+        // Hiển thị danh sách các đề đã làm
+        displayDoneExams(doneExams);
 
         // Lắng nghe sự kiện click vào nút chỉnh sửa
         const editButtons = document.querySelectorAll('.edit-button');
@@ -48,4 +54,14 @@ function displayUserInfo(userData) {
     document.getElementById('password').textContent = userData.password;
     document.getElementById('job').textContent = userData.job;
     document.getElementById('bio').textContent = userData.bio;
+}
+
+// Hàm hiển thị danh sách các đề đã làm
+function displayDoneExams(doneExams) {
+    const examDoneElement = document.getElementById('examDone');
+    if (doneExams.length > 0) {
+        examDoneElement.textContent = doneExams.join(', '); // Hiển thị danh sách các đề đã làm, phân tách bằng dấu phẩy
+    } else {
+        examDoneElement.textContent = 'Chưa làm đề nào.'; // Hiển thị thông báo nếu không có đề nào được làm
+    }
 }

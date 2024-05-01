@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-        <link href="/layouts/user/css/test.css" rel="stylesheet">
-        <style>
-            #subjects-dropdown-menu {
-        display: none; /* Ẩn menu môn học mặc định */
-    }
-    
-    #subjects-dropdown-menu.show {
-        display: block; /* Hiển thị menu môn học khi có lớp show */
-    }
-        </style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/layouts/user/css/test.css" rel="stylesheet">
+    <style>
+        #subjects-dropdown-menu {
+            display: none;
+            /* Ẩn menu môn học mặc định */
+        }
+
+        #subjects-dropdown-menu.show {
+            display: block;
+            /* Hiển thị menu môn học khi có lớp show */
+        }
+    </style>
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
@@ -35,7 +39,7 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="test.html">Đề thi</a>
                     </li>
-                    <li class="nav-item active"id="subjects-dropdown">
+                    <li class="nav-item active" id="subjects-dropdown">
                         <a class="nav-link" href="#">Các môn thi</a>
                         <div id="subjects-dropdown-menu">
                             <a class="dropdown-item subject-item" href="english.html">Anh</a>
@@ -44,11 +48,9 @@
                             <!-- Thêm các môn học khác nếu cần -->
                         </div>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Hỏi đáp</a>
-                    </li>
                     <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Lọc đề thi
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -58,27 +60,26 @@
                             <a class="dropdown-item" href="english.html" onclick="filterByOrder('all')">Tất cả</a>
                         </div>
                     </div>
-                </div>
-                    <!-- <form id="searchForm" class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="text" placeholder="Tìm kiếm" aria-label="Search">
-                        <button id="timKiem" class="btn btn-outline-success my-2 my-sm-0">Tìm kiếm</button>
-                    </form> -->
-
-                    <li class="nav-item active">
-                        <a id="registerBtn" class="nav-link btn btn-primary rounded-pill text-white"
-                            href="./user/register.html">Đăng
-                            ký</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a id="loginBtn" class="nav-link btn btn-primary rounded-pill text-white"
-                            href="./user/login.html">Đăng
-                            nhập</a>
-                    </li>
-                </ul>
             </div>
+            <form id="searchForm" class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Tìm kiếm" aria-label="Search">
+                <button id="timKiem" class="btn btn-outline-success my-2 my-sm-0">Tìm kiếm</button>
+            </form>
+
+            <li class="nav-item active">
+                <a id="registerBtn" class="nav-link btn btn-primary rounded-pill text-white"
+                    href="./user/register.html">Đăng
+                    ký</a>
+            </li>
+            <li class="nav-item active">
+                <a id="loginBtn" class="nav-link btn btn-primary rounded-pill text-white" href="./user/login.html">Đăng
+                    nhập</a>
+            </li>
+            </ul>
+        </div>
         </div>
     </nav>
-    
+
     <div class="container">
         <div class="row">
             <div class="col-md-6">
@@ -110,10 +111,10 @@
                 </div>
             </div>
         </div>
-       
+
     </div>
     <script>
-function filterByOrder(order) {
+        function filterByOrder(order) {
             var cards = document.querySelectorAll(".khoa-hoc");
 
             cards.forEach(function (card) {
@@ -139,22 +140,22 @@ function filterByOrder(order) {
         // Lấy thẻ mục "Các môn thi" và danh sách môn học
         var subjectsDropdown = document.getElementById('subjects-dropdown');
         var subjectsDropdownMenu = document.getElementById('subjects-dropdown-menu');
-    
+
         // Bắt sự kiện trỏ chuột vào mục "Các môn thi"
-        subjectsDropdown.addEventListener('mouseover', function() {
+        subjectsDropdown.addEventListener('mouseover', function () {
             // Hiển thị danh sách môn học khi trỏ chuột vào
             subjectsDropdownMenu.classList.add('show');
         });
-    
+
         // Bắt sự kiện rời chuột ra khỏi mục "Các môn thi" hoặc danh sách môn học
-        subjectsDropdown.addEventListener('mouseleave', function() {
+        subjectsDropdown.addEventListener('mouseleave', function () {
             // Ẩn danh sách môn học khi rời chuột ra khỏi mục "Các môn thi" hoặc danh sách môn học
             subjectsDropdownMenu.classList.remove('show');
         });
-    
+
         // Bắt sự kiện click vào một môn học cụ thể
         document.querySelectorAll('.subject-item').forEach(item => {
-            item.addEventListener('click', function(event) {
+            item.addEventListener('click', function (event) {
                 // Ngăn chặn hành động mặc định của thẻ a (chuyển hướng)
                 event.preventDefault();
                 // Lấy href của môn học được click
@@ -164,6 +165,8 @@ function filterByOrder(order) {
             });
         });
     </script>
+    <script src="/assets/user/js/index.js"></script>
 
 </body>
+
 </html>

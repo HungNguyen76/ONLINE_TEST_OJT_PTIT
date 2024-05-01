@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/layouts/user/css/header.css" rel="stylesheet">
+    <link href="/layouts/user/css/test.css" rel="stylesheet">
     <style>
         #subjects-dropdown-menu {
     display: none; /* Ẩn menu môn học mặc định */
@@ -22,11 +22,11 @@
 
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="./exam.html">
+            <a class="navbar-brand" href="/pages/Ex ENG/exam.html">
                 <img src="https://eduquiz.vn/_next/image?url=%2Flogo%2Flogo-256.png&w=1920&q=75" alt="EduQuiz Logo"
                     width="70" height="50">
             </a>
-            <a class="navbar-brand" href="./exam.html">EduQuiz</a>
+            <a class="navbar-brand" href="/pages/Ex ENG/exam.html">EduQuiz</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -34,21 +34,15 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link btn btn-link text-primary" href="#">Trang chủ</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="./user/test.html">Đề thi</a>
+                        <a class="nav-link btn btn-link text-primary" href="/pages/Ex ENG/exam.html">Trang chủ</a>
                     </li>
                     <li class="nav-item active" id="subjects-dropdown">
-                        <a class="nav-link" href="#">Các môn thi</a>
+                        <a class="nav-link" href="/pages/Ex ENG/test.html">Các môn thi</a>
                         <div id="subjects-dropdown-menu">
-                            <a class="dropdown-item subject-item" href="english.html">Anh</a>
-                            <a class="dropdown-item subject-item" href="math.html">Toán</a>
-                            <a class="dropdown-item subject-item" href="physics.html">Lí</a>
+                            <a class="dropdown-item subject-item" href="/pages/Ex ENG/english.html">Anh</a>
+                            <a class="dropdown-item subject-item" href="./examt.html">Toán</a>
+                            <a class="dropdown-item subject-item" href="/pages/vat li/examl.html">Lí</a>
                         </div>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Hỏi đáp</a>
                     </li>
                     <form id="searchForm" class="form-inline my-2 my-lg-0">
                         <input id="searchInput" class="form-control mr-sm-2" type="text" placeholder="Tìm kiếm" aria-label="Search">
@@ -57,12 +51,12 @@
 
                     <li class="nav-item active">
                         <a id="registerBtn" class="nav-link btn btn-primary rounded-pill text-white"
-                            href="./user/register.html">Đăng
+                            href="/pages/Ex ENG/register.html">Đăng
                             ký</a>
                     </li>
                     <li class="nav-item active">
                         <a id="loginBtn" class="nav-link btn btn-primary rounded-pill text-white"
-                            href="./user/login.html">Đăng
+                            href="/pages/Ex ENG/login.html">Đăng
                             nhập</a>
                         <div id="adminButtonContainer">
                             <!-- Nơi button sẽ hiển thị -->
@@ -85,8 +79,7 @@
                         <h5 class="card-title">Toán đề 1</h5>
                         <p class="card-text">Nguyễn Hồng Thanh Phú</p>
                         <p class="card-text">12/04/2024</p>
-                        <p class="card-text">10 câu hỏi</p>
-                        <a href="./user/A1.html" class="btn btn-success">Bắt Đầu</a>
+                        <a href="./Toan de 1.html" class="btn btn-success">Bắt Đầu</a>
                     </div>
                 </div>
             </div>
@@ -157,7 +150,7 @@
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.9/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <script src="../assets/user/js/index.js"></script>
+        <script src="/assets/user/js/index.js"></script>
         <script>
             // Lấy thẻ mục "Các môn thi" và danh sách môn học
             var subjectsDropdown = document.getElementById('subjects-dropdown');
@@ -187,11 +180,6 @@
                 });
             });
         </script>
-        
-        
-        
-
-
 </body>
 
 </html>
