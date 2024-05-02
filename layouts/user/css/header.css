@@ -96,3 +96,6 @@ a:hover {
     background-color: #28a745;
     border-color: #28a745;
 }
+.navbar navbar-expand-lg navbar-light fixed-top{
+    background-color: #f0f0f0;
+}
