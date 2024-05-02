@@ -168,27 +168,6 @@ document.querySelectorAll('.subject-item').forEach(item => {
     });
 });
 
-function startCountdown() {
-    var duration = 5 * 60; // 5 phút
-    var countdownDisplay = document.getElementById('countdown');
-
-    var timer = setInterval(function () {
-        var minutes = Math.floor(duration / 60);
-        var seconds = duration % 60;
-
-        countdownDisplay.textContent = minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
-
-        if (--duration < 0) {
-            clearInterval(timer);
-            countdownDisplay.textContent = "Hết giờ!";
-            // Thực hiện hành động nào đó khi hết thời gian
-        }
-    }, 1000);
-
-    // Lưu trạng thái đã bắt đầu đếm ngược vào localStorage
-    localStorage.setItem('countdownStarted', 'true');
-}
-
 // Bắt sự kiện click vào nút "Bắt Đầu"
 document.querySelectorAll('.btn-success').forEach(button => {
     button.addEventListener('click', function(event) {
@@ -196,6 +175,7 @@ document.querySelectorAll('.btn-success').forEach(button => {
         var currentUser = localStorage.getItem('currentUser');
         if (currentUser) {
             // Nếu đã đăng nhập, lấy tên đề từ class "card-title"
+            localStorage.setItem('countdownStarted', 'true');
             var examName = this.closest('.khoa-hoc').querySelector('.card-title').textContent.trim();
             var doneExams = JSON.parse(localStorage.getItem('doneExams')) || []; // Lấy danh sách các đề đã làm từ localStorage, nếu chưa có thì mặc định là mảng trống
             // Kiểm tra xem tên đề đã tồn tại trong danh sách chưa trước khi thêm vào

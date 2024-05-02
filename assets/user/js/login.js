@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const loginForm = document.querySelector('form');
 
     // Định nghĩa adminData ở đây
@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
         password: '1234567890'
     };
 
-    loginForm.addEventListener('submit', function(event) {
+    loginForm.addEventListener('submit', function (event) {
         event.preventDefault(); // Ngăn chặn form được gửi đi mặc định
 
         // Lấy giá trị email và mật khẩu từ form
@@ -21,10 +21,21 @@ document.addEventListener('DOMContentLoaded', function() {
             if (isBlocked && isBlocked === 'true') {
                 alert(`Tài khoản ${email} đang bị block. Vui lòng liên hệ với admin để mở.`);
             } else {
-                // Kiểm tra xem người dùng có phải là admin không
+                // Lấy danh sách tài khoản từ localStorage
+                const accounts = JSON.parse(localStorage.getItem('accounts'));
+                // Tìm kiếm tài khoản có email và mật khẩu tương ứng trong danh sách tài khoản
+                const account = accounts.find(acc => acc.email === email && acc.password === password);
+
                 const isAdmin = email === adminData.email && password === adminData.password;
 
-                if (isAdmin) {
+                if (account) {
+                    // Tài khoản tồn tại và thông tin đăng nhập chính xác, tiếp tục xử lý đăng nhập
+                    alert(`Chào mừng bạn đã đăng nhập với email: ${email}`);
+                    // Lưu trạng thái đăng nhập của người dùng vào localStorage
+                    localStorage.setItem('currentUser', email);
+                    // Chuyển hướng đến trang index.html
+                    window.location.href = "/pages/Ex ENG/exam.html";
+                } else if (isAdmin) {
                     // Đăng nhập với quyền admin
                     alert(`Chào mừng admin đã đăng nhập`);
                     // Lưu trạng thái đăng nhập của admin vào localStorage
@@ -32,23 +43,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     // Chuyển hướng đến trang admin
                     window.location.href = "/pages/admin/admin.html";
                 } else {
-                    // Đăng nhập với tài khoản người dùng
-                    alert(`Chào mừng bạn đã đăng nhập với email: ${email}`);
-                    // Kiểm tra và cập nhật số lượng đề đã làm của người dùng
-                    let examDoneCount = localStorage.getItem('examDoneCount');
-                    if (examDoneCount === null) {
-                        // Nếu chưa có thông tin trong localStorage, set giá trị là 1
-                        examDoneCount = 0;
-                    } else {
-                        // Nếu đã có thông tin trong localStorage, tăng giá trị lên một
-                        examDoneCount = parseInt(examDoneCount) + 1;
-                    }
-                    // Lưu số lượng đề đã làm vào localStorage
-                    localStorage.setItem('examDoneCount', examDoneCount);
-                    // Lưu trạng thái đăng nhập của người dùng vào localStorage
-                    localStorage.setItem('currentUser', email);
-                    // Chuyển hướng đến trang index.html
-                    window.location.href = "/pages/Ex ENG/exam.html";
+                    // Tài khoản không tồn tại hoặc thông tin đăng nhập không chính xác, thông báo lỗi
+                    alert("Email hoặc mật khẩu không chính xác.");
                 }
             }
         }

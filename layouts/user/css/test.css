@@ -12,6 +12,10 @@ body {
     /* Điều chỉnh padding cho card-body */
 }
 
+.navbar {
+    background-color: #ffffff;
+}
+
 .row {
     margin-top: 100px;
     /* Thay đổi khoảng cách giữa các card và navbar */
