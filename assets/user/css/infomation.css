@@ -41,4 +41,72 @@ body {
         font-size: 12px;
         /* Giảm kích thước phông chữ hơn nữa cho các thiết bị có màn hình nhỏ hơn hoặc bằng 576px */
     }
+}/* infomation.css */
+
+/* Body */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding-top: 70px; /* To accommodate fixed navbar */
+}
+
+.navbar-brand img {
+    margin-top: 5px; /* Adjust vertical alignment */
+}
+
+/* User Info */
+#user-info {
+    max-width: 600px;
+    margin: 50px auto; /* Centering the content */
+    padding: 20px;
+    background-color: #d1cfcf;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adding a subtle shadow */
+    border: 2px solid #ccc;
+    border-radius: 20px;
+  
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+h2 {
+    color: #333; /* Dark text color */
+    text-align: center;
+    line-height: 3.5;
+}
+
+.edit-button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    border: none;
+    background-color: #007bff; /* Bootstrap primary color */
+    color: #fff; /* White text color */
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.edit-button:hover {
+    background-color: #0056b3; /* Darker shade of primary color on hover */
+}
+
+/* Style for spans containing user information */
+#user-info span {
+    font-weight: bold;
+    color: #007bff; /* Bootstrap primary color */
+}
+
+/* Style for spans containing exam info */
+#user-info #examDone {
+    font-style: italic;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    #user-info {
+        padding: 10px;
+    }
+
+    #user-info h2 {
+        font-size: 24px;
+    }
 }
